@@ -16,20 +16,14 @@
 //***************************************************************************************
 
 #include <msp430.h>
-//#include "../inc/defines.h"
-//#include "../inc/init_fncs.h"
 #include <defines.h>
 #include <init_fncs.h>
 
 void main(void)
 {
 	WDTCTL = WDTPW + WDTHOLD; 		// Stop watchdog timer
-	LED_DIR |= (LED_0 + LED_1); 	// Set P1.0 and P1.6 to output direction
-	LED_OUT &= ~(LED_0 + LED_1); 	// Set the LEDs off
-	P1IE |= BUTTON; 				// P1.3 interrupt enabled
-	P1OUT |= BUTTON;
-	P1REN |= BUTTON;
-	P1IFG &= ~BUTTON; 				// P1.3 IFG cleared
+	init_LEDs();
+	init_button();
 	low_power_mode_with_interrupts();
 
 }
