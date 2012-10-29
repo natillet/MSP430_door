@@ -32,7 +32,8 @@ void main(void)
 #pragma vector=PORT1_VECTOR
 __interrupt void Port_1(void)
 {
-	LED_OUT ^= (LED_0 + LED_1); 	// P1.0 = toggle LEDs
+	LED01_OUT ^= (LED_0 + LED_1); 	// P1.0 = toggle LEDs
+	LED234_OUT ^= (LED_2 + LED_3 + LED_4); // P2.0 = toggle LEDs
 	P1IFG &= ~BUTTON; 				// P1.3 IFG cleared
 }
 

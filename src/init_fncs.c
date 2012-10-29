@@ -15,8 +15,10 @@ void low_power_mode_with_interrupts(void)
 
 void init_LEDs(void)
 {
-	LED_DIR |= (LED_0 + LED_1); 	// Set P1.0 and P1.6 to output direction
-	LED_OUT &= ~(LED_0 + LED_1); 	// Set the LEDs off
+	LED01_DIR |= (LED_0 + LED_1); 	// Set P1.4 and P1.5 to output direction
+	LED01_OUT &= ~(LED_0 + LED_1); 	// Set the LEDs off
+	LED234_DIR |= (LED_2 + LED_3 + LED_4); 	// Set P2.0, P2.1, and P2.2 to output direction
+	LED234_OUT &= ~(LED_2 + LED_3 + LED_4); // Set the LEDs off
 }
 
 void init_button(void)
